@@ -1,5 +1,4 @@
-/* reset css */
-
+/* Reset CSS */
 * {
   min-width: 0;
   font: inherit;
@@ -34,88 +33,106 @@ p {
   text-wrap: pretty;
 }
 
-/* starts here */
-
+/* Estilos generales */
 body {
   background-color: palegoldenrod;
-  height: 100vh;
-
-
-
-  & main {
-
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    & h1 {
-      font-size: 2.5rem;
-      text-align: center;
-      font-weight: 700;
-    }
-    & .options {
-      font-size: 1.5rem;
-      font-weight: 600;
-
-
-      & button {
-        padding: .5rem 1.5rem;
-        border: 2px solid rgba(0, 0, 0, .9);
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-      }
-
-      & button:hover {
-        box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
-      }
-
-      & button#yes {
-        background-color: #97cfaa;
-        margin-right: 2rem;
-      }
-
-      & button#no {
-        background-color: #f36c46;
-      }
-    }
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  padding: 20px;
+  text-align: center;
 }
 
+main {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ajuste de títulos */
+h1 {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+}
+
+/* Opciones */
+.options {
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Botones */
+button {
+  padding: 0.7rem 2rem;
+  border: 2px solid rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* Botón "Sí" */
+button#yes {
+  background-color: #97cfaa;
+}
+
+/* Botón "No" */
+button#no {
+  background-color: #f36c46;
+}
+
+/* Mensaje de confirmación */
 #message {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: palegoldenrod;
-  /* display: flex; */
   display: none;
   justify-content: center;
   align-items: center;
-
-  & h1 {
-    font-size: 3rem;
-    text-align: center;
-    font-weight: 600;
-    animation: palpitation 2s ease-in-out infinite;
-    line-height: 4rem;
-  }
-
+  text-align: center;
+  padding: 20px;
 }
 
+#message h1 {
+  font-size: clamp(2.5rem, 6vw, 3rem);
+  font-weight: 600;
+  animation: palpitation 2s ease-in-out infinite;
+  line-height: 1.5;
+}
+
+/* Animación */
 @keyframes palpitation {
   0% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.1);
   }
-
   100% {
     transform: scale(1);
+  }
+}
+
+/* Responsividad */
+@media (max-width: 480px) {
+  .options {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  button {
+    width: 100%;
   }
 }
