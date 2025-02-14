@@ -21,5 +21,6 @@ buttonNo.addEventListener('click', () => {
 })
 
 buttonYes.addEventListener('click', () => {
+  buttonYes.style.display = 'none';
   document.querySelector('#message').style.display = 'flex'
 })
